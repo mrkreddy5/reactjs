@@ -1,0 +1,25 @@
+function ErrorPage(){
+  return(
+    <>
+      <h1>Page not found</h1>
+      <p>404 ERROR</p>
+    </>
+  )
+}
+
+
+function App(){
+    return(
+      <BrowserRouter>
+          <Header />
+          <Routes>
+              <Route path='/' element={<Home />}/>
+              <Route path='about' element={<About />}/>
+              <Route path='contact' element={<Contact />}/>
+              <Route path='user/:id/:name?' element={<User />}/>
+              <Route path='*' element={<ErrorPage />}/>
+                 
+          </Routes>
+      </BrowserRouter>
+    )
+}

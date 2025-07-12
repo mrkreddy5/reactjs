@@ -1,0 +1,59 @@
+/* App.js
+
+
+import "./App.css"        ------> import has to be done like this for external css 
+
+function CSSstyling (){
+  let s1 = {                        ----> internal css styling, s1 is an object 
+    background : 'blue',            
+    color : 'yellow',
+    marginTop : '100px'       -----> margin-top in JS , marginTop in ISX
+  }
+  return (
+    <div>
+      <h1 className="style">Hellow Everyone</h1>          -----> applying external css using classname , if it is h1,p or any html tag, just import is inof
+      <p style={s1}>Nice to meet you</p>                  -----> applying internal css
+    </div>
+  );
+}
+
+export default CSSstyling */
+
+
+
+/* -----------------------------------------------------
+
+App.css
+
+
+.style {
+  background-color: maroon;
+  color: yellow;
+
+h1 {
+  background-color: green;
+  color: pink;
+}
+
+h1 {
+  background-color: yellow;
+  color: blue;
+
+}
+
+
+} */
+
+/* -------------------------------------------------------- 
+
+global css styling
+
+create a css file in public folder and add styling and add that file in index.html of public folder
+
+<link rel="stylesheet" href="./globalCSS.css">
+
+remove import in App.js which include external css or else this will not applied to it
+
+*/
+
+
