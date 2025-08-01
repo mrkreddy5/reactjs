@@ -34,7 +34,7 @@ export default App;
 
 // -------------------------------------------------------------------------
 
-B . Lazy Loading using routing 
+// B . Lazy Loading using routing 
 
 <BrowserRouter>
           <Header />
