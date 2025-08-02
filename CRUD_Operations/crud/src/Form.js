@@ -3,6 +3,7 @@ import { useState } from "react";
 function Form(props){
 
     let [product, setProduct] = useState(props.data);
+    let [submitted, setSubmitted] = useState(false);
 
     let changeFormData = (event) =>{
         let {name,value} = event.target;
@@ -17,12 +18,16 @@ function Form(props){
                     <input type='text' className="form-control mt-2" name="name" value={product.name}
                         placeholder="Enter Product Name" onChange = {changeFormData} ></input>
 
+                    { submitted && product.name=== "" && <span className="text-danger">Enter Product Name</span>}
+
                 </div>
 
                 <div className="form-group">
                     <label>Price:</label>
                     <input type='number' className="form-control mt-2" name="price" value={product.price}
-                        placeholder="Enter Product Price" onChange = {changeFormData}></input>     
+                        placeholder="Enter Product Price" onChange = {changeFormData}></input> 
+
+                    { submitted && product.price=== "" && <span className="text-danger">Enter Product Price</span>}    
                 </div>
 
                 <div className="form-group">
@@ -36,6 +41,7 @@ function Form(props){
                         <option value="TV's">TV</option>
                     </select>
 
+                    { submitted && product.category=== "" && <span className="text-danger">Select Product Category</span>}
                 </div>
 
                 <button className="btn btn-danger float-end m-1" onClick={(e)=>{
@@ -44,9 +50,10 @@ function Form(props){
                 }}>Close</button>
 
                 <button className="btn btn-primary float-end m-1" onClick={(e)=>{
+                    setSubmitted(true);
                     e.preventDefault();
 
-                    if(product.name && product.price && product.price) {
+                    if(!!product.name && !!product.price && !!product.category) {
                         props.add(product);
                     }
                 }}>Add</button>
